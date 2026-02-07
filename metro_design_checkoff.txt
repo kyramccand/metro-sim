@@ -1,0 +1,95 @@
+Name: Kyra McCandless
+utln: kmccan06
+
+Answer the questions below, and submit your answers under the assignment
+"MetroSim Design Checkoff" on Gradescope. You must sign up for a design
+checkoff slot with a TA to discuss your provided answers (see spec for link).
+
+Unless otherwise specified, your answers below should be *brief*: no more
+than three sentences/question.
+
+        
+1. Are you comfortable with reading from stdin (user input) and a text file 
+in C++? Are you comfortable reading different types (e.g. ints and strings)?
+For this one, don't just answer 'yes' if you are. Write out which data 
+types you will need and which functions you will call. 
+
+Answer: I am comfortable enough with these topics, and I there are resources
+that I can use to review. I will need to read in characters to recognize user
+commands ('m' then either 'm' for move or 'f' for finish, and 'p' to add a
+passenger). I will also need to read in characters for the adding passenger
+feature to detect which station the passenger arrives at and departs from.
+
+2. What happens when I move the train (with 'm m') when the train is at the
+last provided station? 
+
+Answer: The train "circles" around back to the very first station and repeats
+the entire process all over again. This is how passengers can arrive at
+station numbers greater than the ones they depart to.
+
+3. What classes will you need in your program? What interfaces (i.e. 
+functions) do they each provide? 
+
+Answer: I will need the Passenger class with getId(), getStartingStation(),
+getEndingStation(), and print(std::ostream &output), the PassengerQueue class
+with enqueue(const Passenger &passenger), dequeue(), front(), size(), and
+print(std::ostream &output), and I also plan to implement a Train class with
+the public move() function that calls many private functions such as
+board(int stationNum), unload(int stationNum), as well as a print(std::ostream
+&output).
+
+4. How will you implement add a passenger to a station? How will this 
+impact the data structure(s) you use to represent the stations in the 
+simulation? 
+
+Answer: Adding a passenger to a station is the equivalent of a pushAtBack to the
+end of a list. So, I will represent the stations as a doubly linked list with a
+back pointer, which the std::list class is. This way adding to the back of the
+line at a station and removing from the front of the line are both efficient.
+
+5. How will you implement moving a train from one station into the next? 
+How will you put passengers onto the train? How will you take off the
+correct passengers who are leaving at the next station? How will these 
+considerations impact the data structure(s) you use to represent the 
+train in the simulation? 
+
+Answer: As I mentioned earlier, I plan to implement a Train class and have a
+public move() function that calls many helper functions, including board(int
+stationNum) and unload(int stationNum). Board will take all of the Passengers
+at stationNum and add them to the PassengerQueue that represents the Passengers
+on the train, and unload will search the Passengers on the train for the ones
+that are departing at stationNum, removing them from the front. Since I will be
+doing a lot of adding to the back and removing from the front, an std::list,
+which is implemented as a doubly linked list will be most efficient for the
+O(1) pushAtFront and popFromBack functionalities.
+
+6. Does command behavior change based on the source of commands? 
+Based on your answer, how could we modularize our command processing
+code? Be as detailed as you can.
+
+Answer: There is no difference in command behavior based on the source of the
+commands. The only change I would have to make is to read input from a file
+instead of an input stream. To do this, I will have two separate query methods,
+one for reading input from the user and one fror reading input from a file.
+For the file reading one, I will open the fstream before calling the function
+and close it after and pass it by reference so that I can continue reading from
+the same spot on the file.
+
+7. How do you plan to test your program? What evidence of testing do
+you plan to submit? 
+
+Answer: I plan to test my program using the provided unit_tests.h resource.
+As suggested in the project spec, I will make my private funtions temporarily
+public to test them and then comment out the tests when I am done, leaving them
+as evidence of my testing. I also plan to write many test input files, run my
+program and the reference on them using redirection, and then check for errors
+using diff.
+
+8. What is your timeline for completing this project? What would you like 
+to have completed, and by which dates?   
+
+Answer: I am all about starting projects early and submitting them many times,
+so I plan to have the Passenger and PassengerQueue files (Phase 1) written,
+tested, and submitted by Sunday morning to give me over a week to work through
+the rest of the implementation and catch any edge cases that slipped by on
+my first attempt at Phase 1.

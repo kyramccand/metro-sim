@@ -1,0 +1,64 @@
+/**********************************************************
+* Project 1: Metro Simulator
+* CS 15
+* README
+* Kyra McCandless
+*********************************************************/
+
+Compile/run:
+     - Compile and run with "unit_test"
+
+
+Program Purpose:
+
+    To implement the Passenger and PassengerQueue classes that my final
+    simulator of the Green Line will be built off of.
+
+
+Acknowledgements: 
+
+    I used the website at the URL below to learn about std::lists for my
+    implementation of the PassengerQueue class, as well as reviewing the Queues
+    lecture slides from Monday.
+
+
+
+Files: 
+
+Passenger.h: Interface of the Passenger class.
+
+Passenger.cpp: Implementation of the Passenger class.
+
+PassengerQueue.h: Interface of the PassengerQueue class.
+
+PassengerQueue.cpp: Implemenation of the PassengerQueue class.
+
+unit_tests.h: A unit testing file for the Passenger and PassengerQueue classes.
+    Runs in conjunction with the unit_test framework to allow for testing of 
+    individual functions.
+
+
+Data Structures:
+    
+    The main abstract data structure of Phase 1 of MetroSim is a queue, which
+    is an ordered list of elements that is added and removed from using the
+    FIFO (first in first out) rule. I implemented the PassengerQueue class
+    as an std::list of Passenger objects because std::lists are doubly linked
+    with a back pointer, and thus have more efficient pop_front and push_back
+    functionalities, which are the two operations that a queue performs
+    repeatedly.
+
+
+Testing:
+    
+    I tested the functions of the Passenger and Passenger queue class both
+    manually (I wrote some tester code in main.cpp), as well as automatically
+    using the provided unit_test framework. Upon looking at the project spec
+    pdf, I wasn't sure whether printing a PassengerQueue object had spaces
+    between the printing of each Passener, but after inspecting the reference
+    program's output, I realized that they do not have spaces between them.
+    I suppose this was the most challenging bug that I encountered while testing
+    thus far.
+
+
+Time Spent: 5 hours
