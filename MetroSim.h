@@ -20,9 +20,11 @@ class MetroSim {
 
 public:
     MetroSim();
+    ~MetroSim();
     void read_stations(string stations_filename);
     void print(ostream &output);
     void moveTrain();
+    void addPassenger(Passenger p);
 private:
     vector<Station *> stations;
     Train train;

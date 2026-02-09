@@ -24,13 +24,11 @@ class Station {
     public:
         Station(string station_name);
         string getName();
-        PassengerQueue getArrivals();
-        PassengerQueue getDepartures();
+        PassengerQueue getPassengers();
         void addPassenger(Passenger passenger);
         void print(ostream &output);
     private:
-        PassengerQueue arrivals;
-        PassengerQueue departures;
+        PassengerQueue passengers;
         string name;
         int num_passengers;
 };

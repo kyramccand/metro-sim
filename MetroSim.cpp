@@ -25,6 +25,18 @@ MetroSim::MetroSim() {
 }
 
 /*
+ * name:      ~MetroSim
+ * purpose:   clean up Metrosim memory when it goes out of scope
+ * arguments: none
+ * returns:   none
+ * effects:   none
+ * other:     none
+ */ 
+MetroSim::~MetroSim() {
+    stations.clear();
+}
+
+/*
  * name:      read_stations
  * purpose:   read station data from the file called filename
  * arguments: the string name of the file to read station data from
@@ -45,7 +57,8 @@ void MetroSim::read_stations(string filename) {
     string line;
     while (getline (infile, line)) {
         // Add station
-        stations.push_back(new Station(line));
+        Station *new_station = new Station(line);
+        stations.push_back(new_station);
     }
     infile.close();
 }
@@ -60,10 +73,11 @@ void MetroSim::read_stations(string filename) {
  */ 
 void MetroSim::print(ostream &output) {
     // Print info about each station
-    for (int i = 0; i < stations.size(); i++) {
-        cout << "[" << i+1 << "] ";
+    int num_stations = stations.size();
+    for (int i = 0; i < num_stations; i++) {
+        output << "[" << i+1 << "] ";
         stations[i]->print(cout);
-        cout << endl;
+        output << endl;
     }
 }
 
@@ -77,4 +91,16 @@ void MetroSim::print(ostream &output) {
  */ 
 void MetroSim::moveTrain() {
     train.move();
+}
+
+/*
+ * name:      addPassenger
+ * purpose:   simulate a passenger being added to the line at the proper station
+ * arguments: the Passenger p representing the passenger to add
+ * returns:   none
+ * effects:   none
+ * other:     none
+ */ 
+void MetroSim::addPassenger(Passenger p) {
+    stations[p.getStartingStation()]->addPassenger(p);
 }

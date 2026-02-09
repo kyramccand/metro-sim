@@ -37,27 +37,14 @@ string Station::getName() {
 }
 
 /*
-* name:      getArrivals
+* name:      getPassengers
 * purpose:   provide access to the arrivals at the Station
 * arguments: none
 * returns:   a PassengerQueue representing the line of Passengers
 * effects:   none
 * other:     none
 */
-PassengerQueue Station::getArrivals() {
-    PassengerQueue queue;
-    return queue;
-}
-
-/*
-* name:      getDepartures
-* purpose:   provide access to the departures at the Station
-* arguments: none
-* returns:   a PassengerQueue representing the line of Passengers
-* effects:   none
-* other:     none
-*/
-PassengerQueue Station::getDepartures() {
+PassengerQueue Station::getPassengers() {
     PassengerQueue queue;
     return queue;
 }
@@ -71,7 +58,7 @@ PassengerQueue Station::getDepartures() {
 * other:     none
 */
 void Station::addPassenger(Passenger passenger) {
-    departures.enqueue(passenger);
+    passengers.enqueue(passenger);
 }
 
 /*
