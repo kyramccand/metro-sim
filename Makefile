@@ -15,7 +15,8 @@ LDFLAGS  = -g3
 # If you add other classes, you'll have to add their .o files as dependencies here.
 # Don't forget:  the clang++ command must be indented with a TAB character
 # and be all on one line.
-MetroSim: main.o MetroSim.o PassengerQueue.o Passenger.o
+MetroSim: main.o MetroSim.o PassengerQueue.o Passenger.o Station.o Train.o
+	$(CXX) $(CXXFLAGS) $^
 	
 
 # ***TODO***
@@ -27,12 +28,21 @@ MetroSim: main.o MetroSim.o PassengerQueue.o Passenger.o
 PassengerQueue.o: PassengerQueue.cpp PassengerQueue.h Passenger.h 
 	$(CXX) $(CXXFLAGS) -c PassengerQueue.cpp
 
+Passenger.o: Passenger.cpp Passenger.h
+	$(CXX) $(CXXFLAGS) -c Passenger.cpp
+
+Station.o: Station.cpp Station.h PassengerQueue.h Passenger.h
+	$(CXX) $(CXXFLAGS) -c Station.h
+
+Train.o: Train.cpp Train.h Station.h PassengerQueue.h Passenger.h
+	$(CXX) $(CXXFLAGS) -c Train.h
+
 
 # ***TODO***
 # The below rule will be used by unit_test.
 # Please add any other .o files that are needed by PassengerQueue,
 # and any other .o files you wish to test. 
-unit_test: unit_test_driver.o PassengerQueue.o Passenger.o
+unit_test: unit_test_driver.o PassengerQueue.o Passenger.o Station.o Train.o
 	$(CXX) $(CXXFLAGS) $^
 
 # remove executables, object code, and temporary files from the current folder 

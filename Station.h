@@ -1,0 +1,39 @@
+/*
+ *  Station.h
+ *  Kyra McCandless
+ *  2/8/26
+ *
+ *  CS 15 Project 1 MetroSim
+ *
+ *  Station is a class that represents an train station with a Passengers
+ *  organized into a PassengerQueue.
+ */
+
+
+#ifndef __STATION_H__
+#define __STATION_H__
+
+#include "Passenger.h"
+#include "PassengerQueue.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Station {
+    public:
+        Station(string station_name);
+        string getName();
+        PassengerQueue getArrivals(int station_num);
+        PassengerQueue getDepartures(int station_num);
+        void addPassenger(Passenger passenger);
+        void clear();
+        void print(ostream &output);
+    private:
+        PassengerQueue arrivals;
+        PassengerQueue departures;
+        string name;
+        int num_passengers;
+};
+
+#endif

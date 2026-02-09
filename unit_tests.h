@@ -118,3 +118,9 @@ void frontValid() {
     line.front().print(ss);
     assert(ss.str() == "[0, 1->2]"); // Check for expected front
 }
+
+// Tests Station constructor and getName simultaneously
+void stationWithName() {
+    Station station("Station 1");
+    assert(station.getName() == "Station 1");
+}

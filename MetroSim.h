@@ -7,6 +7,8 @@
 
 #include "Passenger.h"
 #include "PassengerQueue.h"
+#include "Station.h"
+#include "Train.h"
 // Put any other necessary includes here
 
 
