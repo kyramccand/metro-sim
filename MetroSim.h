@@ -12,21 +12,19 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 using namespace std;
-
-// Put any other necessary includes here
-
 
 class MetroSim {
 
 public:
-    void read_stations(string filename);
-
+    MetroSim();
+    void read_stations(string stations_filename);
+    void print(ostream &output);
 private:
-    // Put any other structs you need here
-    Station *stations;
-    int num_stations;
+    vector<Station *> stations;
+    Train train;
 };
 
 #endif

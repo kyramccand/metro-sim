@@ -24,10 +24,9 @@ class Station {
     public:
         Station(string station_name);
         string getName();
-        PassengerQueue getArrivals(int station_num);
-        PassengerQueue getDepartures(int station_num);
+        PassengerQueue getArrivals();
+        PassengerQueue getDepartures();
         void addPassenger(Passenger passenger);
-        void clear();
         void print(ostream &output);
     private:
         PassengerQueue arrivals;

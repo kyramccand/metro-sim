@@ -10,6 +10,8 @@ int main(int argc, char *argv[]) {
     
     MetroSim metrosim;
     metrosim.read_stations(argv[1]);
+
+    metrosim.print(cout);
     
     return 0;
 }

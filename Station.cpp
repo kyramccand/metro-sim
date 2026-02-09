@@ -1,35 +1,87 @@
-/* TODO: Write header comment
+/*
+ *  Station.cpp
+ *  Kyra McCandless
+ *  2/6/26
+ *
+ *  CS 15 Project 1 MetroSim
+ *
+ *  This file contains an implementation of the Station class.
  *
  */
 
 #include "Station.h"
 
+/*
+* name:      Station
+* purpose:   construct a Station from a name
+* arguments: the string name of the station
+* returns:   none
+* effects:   assigns the name to station_name
+* other:     none
+*/
+
 Station::Station(string station_name) {
     name = station_name;
 }
 
+/*
+* name:      getName
+* purpose:   provide read only access to the name of a Station
+* arguments: none
+* returns:   the string name of the Station
+* effects:   none
+* other:     none
+*/
 string Station::getName() {
     return name;
 }
 
-PassengerQueue Station::getArrivals(int station_num) {
+/*
+* name:      getArrivals
+* purpose:   provide access to the arrivals at the Station
+* arguments: none
+* returns:   a PassengerQueue representing the line of Passengers
+* effects:   none
+* other:     none
+*/
+PassengerQueue Station::getArrivals() {
     PassengerQueue queue;
     return queue;
 }
 
-PassengerQueue Station::getDepartures(int station_num) {
+/*
+* name:      getDepartures
+* purpose:   provide access to the departures at the Station
+* arguments: none
+* returns:   a PassengerQueue representing the line of Passengers
+* effects:   none
+* other:     none
+*/
+PassengerQueue Station::getDepartures() {
     PassengerQueue queue;
     return queue;
 }
 
+/*
+* name:      addPassenger
+* purpose:   add a passenger to the line of arrivals
+* arguments: the Passenger representing the passenger to add
+* returns:   none
+* effects:   none
+* other:     none
+*/
 void Station::addPassenger(Passenger passenger) {
     departures.enqueue(passenger);
 }
 
-void Station::clear() {
-    return;
-}
-
+/*
+* name:      print
+* purpose:   communicate information about the Station
+* arguments: a reference to the output stream to communicate information to
+* returns:   none
+* effects:   none
+* other:     none
+*/
 void Station::print(ostream &output) {
     output << "{";
     departures.print(output);

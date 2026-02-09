@@ -16,6 +16,7 @@
 #include "Passenger.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ class Train {
         void move();
         void print(ostream &output);
     private:
-        Station *stations;
+        vector<Station *> stations;
         int curr_station;
         void boardPassengers(int station_num);
         void depositPassengers(int station_num);
