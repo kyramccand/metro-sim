@@ -22,6 +22,7 @@ public:
     MetroSim();
     void read_stations(string stations_filename);
     void print(ostream &output);
+    void moveTrain();
 private:
     vector<Station *> stations;
     Train train;

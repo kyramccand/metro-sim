@@ -66,3 +66,15 @@ void MetroSim::print(ostream &output) {
         cout << endl;
     }
 }
+
+/*
+ * name:      moveTrain
+ * purpose:   simulate the Train moving to the next station
+ * arguments: none
+ * returns:   none
+ * effects:   none
+ * other:     none
+ */ 
+void MetroSim::moveTrain() {
+    train.move();
+}
