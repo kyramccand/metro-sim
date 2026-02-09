@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     
     // Initialize simulation
     MetroSim metrosim;
-    metrosim.read_stations(argv[1]); // Populate stations
+    //metrosim.read_stations(argv[1]); // Populate stations
 
     // Begin reading commands
     // query(cin, &metrosim);

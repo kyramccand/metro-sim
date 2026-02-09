@@ -57,8 +57,7 @@ void MetroSim::read_stations(string filename) {
     string line;
     while (getline (infile, line)) {
         // Add station
-        Station *new_station = new Station(line);
-        stations.push_back(new_station);
+        stations.push_back(Station(line));
     }
     infile.close();
 }
@@ -76,7 +75,7 @@ void MetroSim::print(ostream &output) {
     int num_stations = stations.size();
     for (int i = 0; i < num_stations; i++) {
         output << "[" << i+1 << "] ";
-        stations[i]->print(cout);
+        stations[i].print(cout);
         output << endl;
     }
 }
@@ -102,5 +101,5 @@ void MetroSim::moveTrain() {
  * other:     none
  */ 
 void MetroSim::addPassenger(Passenger p) {
-    stations[p.getStartingStation()]->addPassenger(p);
+    stations[p.getStartingStation()].addPassenger(p);
 }

@@ -22,6 +22,7 @@
 
 Station::Station(string station_name) {
     name = station_name;
+    num_passengers = 0;
 }
 
 /*

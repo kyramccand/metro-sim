@@ -26,7 +26,7 @@ public:
     void moveTrain();
     void addPassenger(Passenger p);
 private:
-    vector<Station *> stations;
+    vector<Station> stations;
     Train train;
 };
 
