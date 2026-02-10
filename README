@@ -6,59 +6,71 @@
 *********************************************************/
 
 Compile/run:
-     - Compile and run with "unit_test"
+     - Compile using
+            make MetroSim
+     - run executable with
+            ./MetroSim stationsFile passFile [commands]
 
 
 Program Purpose:
 
-    To implement the Passenger and PassengerQueue classes that my final
-    simulator of the Green Line will be built off of.
-
 
 Acknowledgements: 
 
-    I used the website at the URL below to learn about std::lists for my
-    implementation of the PassengerQueue class, as well as reviewing the Queues
-    lecture slides from Monday.
+Used website to learn std::list syntax
 
 
 
 Files: 
 
-Passenger.h: Interface of the Passenger class.
+main.cpp:
+     STUDENT TO-DO: Main file should be short and handle simple driver
+     functions such as reading in files.
 
-Passenger.cpp: Implementation of the Passenger class.
+MetroSim.cpp:
+     STUDENT TO-DO: Implementation of MetroSim class.  Main
+     functionality of running the Metro Simulation, should be able to
+     move trains and deal with passengers going on/off the train.
 
-PassengerQueue.h: Interface of the PassengerQueue class.
+MetroSim.h:
+     STUDENT TO-DO: Interface of MetroSim class.
 
-PassengerQueue.cpp: Implemenation of the PassengerQueue class.
+stations.txt:
+     an example file containing a list of stations.
 
-unit_tests.h: A unit testing file for the Passenger and PassengerQueue classes.
-    Runs in conjunction with the unit_test framework to allow for testing of 
-    individual functions.
+test_commands.txt:
+     sample list of commands that you could give to the simulator
 
+the_metroSim:
+     reference implementation for students to see how 
+
+
+Note:  the program should handle all cases.
 
 Data Structures:
-    
-    The main abstract data structure of Phase 1 of MetroSim is a queue, which
-    is an ordered list of elements that is added and removed from using the
-    FIFO (first in first out) rule. I implemented the PassengerQueue class
-    as an std::list of Passenger objects because std::lists are doubly linked
-    with a back pointer, and thus have more efficient pop_front and push_back
-    functionalities, which are the two operations that a queue performs
-    repeatedly.
 
 
 Testing:
-    
-    I tested the functions of the Passenger and Passenger queue class both
-    manually (I wrote some tester code in main.cpp), as well as automatically
-    using the provided unit_test framework. Upon looking at the project spec
-    pdf, I wasn't sure whether printing a PassengerQueue object had spaces
-    between the printing of each Passener, but after inspecting the reference
-    program's output, I realized that they do not have spaces between them.
-    I suppose this was the most challenging bug that I encountered while testing
-    thus far.
 
+* kept getting nasty seg fault, double checked all my .h and .cpp files. after
+  searching for hours, i eventually discovered the error was in my Makefile! I
+  put Station.h instead of Station.cpp in my Station.o rule.
 
-Time Spent: 5 hours
+Here describe the following: process of testing (unit tests), mention
+of bugs you encountered while testing, mention of testing on inputs of
+different sizes and edge cases, good description of base cases you
+considered while testing. Demonstrate a methodical approach to
+testing.  This section of your REAMDE should be very thorough for
+assignments.
+
+Note: This assignment comes partially implemented, but student must also
+create the driver and add class functionality.
+
+Part that you found most difficult:
+
+Here, inditicate the part of the assignment that you found the most
+challenging. It could be a concept (ie. stacks) or something specific
+to the assignment. This will help us know what to review and what to
+focus on.
+
+Time Spent: 

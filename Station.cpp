@@ -72,7 +72,7 @@ void Station::addPassenger(Passenger passenger) {
 */
 void Station::print(ostream &output) {
     output << "{";
-    departures.print(output);
+    passengers.print(output);
     output << "}";
    
 }

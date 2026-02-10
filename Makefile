@@ -32,10 +32,10 @@ Passenger.o: Passenger.cpp Passenger.h
 	$(CXX) $(CXXFLAGS) -c Passenger.cpp
 
 Station.o: Station.cpp Station.h PassengerQueue.h Passenger.h
-	$(CXX) $(CXXFLAGS) -c Station.h
+	$(CXX) $(CXXFLAGS) -c Station.cpp
 
 Train.o: Train.cpp Train.h Station.h PassengerQueue.h Passenger.h
-	$(CXX) $(CXXFLAGS) -c Train.h
+	$(CXX) $(CXXFLAGS) -c Train.cpp
 
 
 # ***TODO***

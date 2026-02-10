@@ -55,9 +55,10 @@ void MetroSim::read_stations(string filename) {
 
     // Read line by line
     string line;
-    while (getline (infile, line)) {
+    while (getline(infile, line)) {
         // Add station
-        stations.push_back(Station(line));
+        Station new_station(line);
+        stations.push_back(new_station);
     }
     infile.close();
 }
