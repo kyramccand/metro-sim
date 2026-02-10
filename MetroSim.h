@@ -24,7 +24,7 @@ public:
     void read_stations(string stations_filename);
     void print(ostream &output);
     void moveTrain();
-    void addPassenger(Passenger p);
+    void addPassenger(int start, int end);
     int getNumPassengers();
 private:
     vector<Station> stations;

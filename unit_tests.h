@@ -143,7 +143,7 @@ void addOnePassengerStation() {
 void addManyPassengersStation() {
     Station station("Station"); // Initialize an empty station
     for (int i = 0; i < 5; i++) { // Add many passengers
-        station.addPassenger(Passenger(0, 0, 0)); 
+        station.addPassenger(Passenger(0, 0, 0));
     }
     // Collect print
     stringstream ss;
@@ -166,7 +166,7 @@ void numPassengersMany() {
     MetroSim sim;
     sim.read_stations("test_stations1.txt");
     for (int i = 0; i < 100; i++) {
-        sim.addPassenger(Passenger(0, 0, 0));
+        sim.addPassenger(0, 0);
     }
     // Check that all passengers are counted
     assert(sim.getNumPassengers() == 100);
@@ -180,7 +180,7 @@ void numPassengersManyAtMany() {
     sim.read_stations("test_stations1.txt");
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 100; j++) {
-            sim.addPassenger(Passenger(0, 0, 0));
+            sim.addPassenger(i, 0);
         }
     }
     // Check that all passengers are counted for

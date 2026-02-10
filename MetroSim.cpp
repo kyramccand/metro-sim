@@ -101,7 +101,8 @@ void MetroSim::moveTrain() {
  * effects:   none
  * other:     none
  */ 
-void MetroSim::addPassenger(Passenger p) {
+void MetroSim::addPassenger(int start, int end) {
+    Passenger p(num_passengers + 1, start, end);
     stations[p.getStartingStation()].addPassenger(p);
     num_passengers++;
 }

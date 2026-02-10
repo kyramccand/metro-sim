@@ -78,6 +78,5 @@ void query(istream &input, MetroSim *sim) {
  * other:     none
  */
 void handlePassenger(int d_num, int a_num, MetroSim *sim) {
-    Passenger passenger(0, d_num, a_num);
-    sim->addPassenger(passenger);
+    sim->addPassenger(d_num, a_num);
 }
