@@ -21,7 +21,7 @@
  * other:     none
  */ 
 MetroSim::MetroSim() {
-    
+    num_passengers = 0;
 }
 
 /*
@@ -103,4 +103,18 @@ void MetroSim::moveTrain() {
  */ 
 void MetroSim::addPassenger(Passenger p) {
     stations[p.getStartingStation()].addPassenger(p);
+    num_passengers++;
+}
+
+/*
+ * name:      getNumPassengers
+ * purpose:   provide read only access to the number of Passengers in the
+ *            simulation
+ * arguments: none
+ * returns:   the integer number of Passengers
+ * effects:   none
+ * other:     none
+ */ 
+int MetroSim::getNumPassengers() {
+    return num_passengers;
 }

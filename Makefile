@@ -42,7 +42,7 @@ Train.o: Train.cpp Train.h Station.h PassengerQueue.h Passenger.h
 # The below rule will be used by unit_test.
 # Please add any other .o files that are needed by PassengerQueue,
 # and any other .o files you wish to test. 
-unit_test: unit_test_driver.o PassengerQueue.o Passenger.o Station.o Train.o
+unit_test: unit_test_driver.o MetroSim.o PassengerQueue.o Passenger.o Station.o Train.o
 	$(CXX) $(CXXFLAGS) $^
 
 # remove executables, object code, and temporary files from the current folder 

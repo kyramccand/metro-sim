@@ -25,6 +25,7 @@ public:
     void print(ostream &output);
     void moveTrain();
     void addPassenger(Passenger p);
+    int getNumPassengers();
 private:
     vector<Station> stations;
     Train train;

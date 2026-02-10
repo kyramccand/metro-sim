@@ -151,3 +151,40 @@ void addManyPassengersStation() {
     // Check for expected Passenger data
     assert(ss.str() == "{[0, 0->0][0, 0->0][0, 0->0][0, 0->0][0, 0->0]}");
 }
+
+
+// Tests correct number of passengers in an empty MetroSim
+void numPassengersEmtpy() {
+    MetroSim sim; // Intialize an empty MetroSim
+    assert(sim.getNumPassengers() == 0); // Check that it is actually empty
+}
+
+// Tests correct number of passengers in a MetroSim with many Passengers at the
+// same station
+void numPassengersMany() {
+    // Intialize an MetroSim with many Passengers at the same station
+    MetroSim sim;
+    sim.read_stations("test_stations1.txt");
+    for (int i = 0; i < 100; i++) {
+        sim.addPassenger(Passenger(0, 0, 0));
+    }
+    // Check that all passengers are counted
+    assert(sim.getNumPassengers() == 100);
+}
+
+// Tests correct number of passengers in a MetroSim with many Passengers at many
+// stations
+void numPassengersManyAtMany() {
+    // Intialize an MetroSim with many Passengers at many stations
+    MetroSim sim;
+    sim.read_stations("test_stations1.txt");
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 100; j++) {
+            sim.addPassenger(Passenger(0, 0, 0));
+        }
+    }
+    // Check that all passengers are counted for
+    assert(sim.getNumPassengers() == 500);
+}
+
+
