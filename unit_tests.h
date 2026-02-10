@@ -124,3 +124,30 @@ void stationWithName() {
     Station station("Station 1");
     assert(station.getName() == "Station 1");
 }
+
+// Tests adding a single Passenger to a Station
+// Afterwards, the station should have one more passenger and the Passenger
+// we added should be at the end of the line
+void addOnePassengerStation() {
+    Station station("Station"); // Initialize an empty station
+    station.addPassenger(Passenger(0, 0, 0)); // Add one passenger
+    // Collect print
+    stringstream ss;
+    station.print(ss);
+    assert(ss.str() == "{[0, 0->0]}"); // Check for expected Passenger data
+}
+
+// Tests adding many Passengers to a Station
+// Afterwards, the station should have have the number of Passengers we added
+// and the correct data
+void addManyPassengersStation() {
+    Station station("Station"); // Initialize an empty station
+    for (int i = 0; i < 5; i++) { // Add many passengers
+        station.addPassenger(Passenger(0, 0, 0)); 
+    }
+    // Collect print
+    stringstream ss;
+    station.print(ss);
+    // Check for expected Passenger data
+    assert(ss.str() == "{[0, 0->0][0, 0->0][0, 0->0][0, 0->0][0, 0->0]}");
+}

@@ -28,6 +28,7 @@ public:
 private:
     vector<Station> stations;
     Train train;
+    int num_passengers;
 };
 
 #endif
