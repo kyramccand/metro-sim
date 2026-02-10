@@ -75,6 +75,8 @@ void MetroSim::read_stations(string filename) {
  * other:     none
  */ 
 void MetroSim::print(ostream &output) {
+    // Print the train
+    train.print(output);
     // Print info about each station
     int num_stations = stations.size();
     for (int i = 0; i < num_stations; i++) {

@@ -31,7 +31,7 @@ class Train {
         vector<PassengerQueue> passengers;
         int curr_station;
         int num_stations;
-        void boardPassengers(int station_num);
+        void boardPassengers(Station *station);
         void depositPassengers(int station_num);
 };
 

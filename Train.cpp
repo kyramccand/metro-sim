@@ -79,7 +79,13 @@ int Train::getStation() {
  * other:     none
  */
 void Train::print(ostream &output) {
-    return;
+    output << "Passengers on the train: {"; // Starting message
+    int num_train_cars = passengers.size();
+    // Print the passengers in every train car
+    for (int i = 0; i < num_train_cars; i++) {
+        passengers.at(i).print(output);
+    }
+    output << "}" << endl;
 }
 
 /*
@@ -90,7 +96,7 @@ void Train::print(ostream &output) {
  * effects:   
  * other:     
  */
-void Train::boardPassengers(int station_num) {
+void Train::boardPassengers(Station *station) {
     return;
 }
 
