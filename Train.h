@@ -22,8 +22,10 @@ using namespace std;
 
 class Train {
     public:
+        Train();
         void move();
         void print(ostream &output);
+        int getStation();
     private:
         vector<Station *> stations;
         int curr_station;

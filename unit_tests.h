@@ -195,15 +195,16 @@ void readStationsOneWord() {
     // Collect the print
     stringstream ss;
     sim.print(ss);
-    cout << "tostring: " << ss.str() << endl;
     // Check for expected data
-    assert(ss.str() == "[0] 1 {}\n"
-                        "[1] 2 {}\n"
-                        "[2] 3 {}\n"
-                        "[3] 4 {}\n"
-                        "[4] 5 {}\n");
+    cout << ss.str() << endl;
+    assert(ss.str() == "TRAIN: [0] 1 {}\n"
+                        "       [1] 2 {}\n"
+                        "       [2] 3 {}\n"
+                        "       [3] 4 {}\n"
+                        "       [4] 5 {}\n");
 }
 
+// Tests that the simulator can read stations with multiple word names
 void readStationsMultiWord() {
     // Initialize a MetroSim and read the test stations
     MetroSim sim;
@@ -211,10 +212,16 @@ void readStationsMultiWord() {
     // Collect the print
     stringstream ss;
     sim.print(ss);
-    cout << "tostring: " << ss.str() << endl;
     // Check for expected data
-    assert(ss.str() == "[0] Station 1 {}\n"
-                        "[1] Station 2 {}\n");
+    cout << ss.str() << endl;
+    assert(ss.str() == "TRAIN: [0] Station 1 {}\n"
+                        "       [1] Station 2 {}\n");
 }
 
+
+// Tests that the train starts at station 0
+void startsAtZero() {
+    MetroSim sim;
+    assert(sim.train.getStation() == 0);
+}
 

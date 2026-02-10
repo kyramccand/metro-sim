@@ -26,9 +26,9 @@ public:
     void moveTrain();
     void addPassenger(int start, int end);
     int getNumPassengers();
+    Train train;
 private:
     vector<Station> stations;
-    Train train;
     int num_passengers;
 };
 

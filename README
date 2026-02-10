@@ -56,6 +56,9 @@ Testing:
   searching for hours, i eventually discovered the error was in my Makefile! I
   put Station.h instead of Station.cpp in my Station.o rule.
 
+* trying to use MetroSim print in assert statements for unit testing, had couts
+  mixed in with outputs. Looked in dense red valgrind errors to find problem.
+
 Here describe the following: process of testing (unit tests), mention
 of bugs you encountered while testing, mention of testing on inputs of
 different sizes and edge cases, good description of base cases you

@@ -49,7 +49,7 @@ void MetroSim::read_stations(string filename) {
     infile.open(filename); // Attempt to open the file
     // Catch errors
     if (infile.fail()) {
-        cerr << "Error: could not open file " << filename;
+        cerr << "Error: could not open file " << filename << endl;
         exit(EXIT_FAILURE);
     }
 
@@ -75,6 +75,12 @@ void MetroSim::print(ostream &output) {
     // Print info about each station
     int num_stations = stations.size();
     for (int i = 0; i < num_stations; i++) {
+        if (i == train.getStation()) {
+            output << "TRAIN: ";
+        }
+        else {
+            output << "       ";
+        }
         output << "[" << i << "] ";
         stations[i].print(output);
         output << endl;

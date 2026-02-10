@@ -1,11 +1,26 @@
-/* TODO: Write header comment
+/*
+ *  Train.cpp
+ *  Kyra McCandless
+ *  2/6/26
+ *
+ *  CS 15 Project 1 MetroSim
+ *
+ *  This file contains an implementation of the Train class.
  *
  */
 
 #include "Train.h"
 
+Train::Train() {
+    curr_station = 0;
+}
+
 void Train::move() {
     return;
+}
+
+int Train::getStation() {
+    return curr_station;
 }
 
 void Train::print(ostream &output) {
