@@ -75,8 +75,8 @@ void MetroSim::print(ostream &output) {
     // Print info about each station
     int num_stations = stations.size();
     for (int i = 0; i < num_stations; i++) {
-        output << "[" << i+1 << "] ";
-        stations[i].print(cout);
+        output << "[" << i << "] ";
+        stations[i].print(output);
         output << endl;
     }
 }

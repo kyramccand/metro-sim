@@ -46,8 +46,7 @@ string Station::getName() {
 * other:     none
 */
 PassengerQueue Station::getPassengers() {
-    PassengerQueue queue;
-    return queue;
+    return passengers;
 }
 
 /*
@@ -71,8 +70,7 @@ void Station::addPassenger(Passenger passenger) {
 * other:     none
 */
 void Station::print(ostream &output) {
-    output << "{";
+    output << name << " {";
     passengers.print(output);
     output << "}";
-   
 }

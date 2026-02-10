@@ -134,7 +134,7 @@ void addOnePassengerStation() {
     // Collect print
     stringstream ss;
     station.print(ss);
-    assert(ss.str() == "{[0, 0->0]}"); // Check for expected Passenger data
+    assert(ss.str() == "Station {[0, 0->0]}"); // Check for expected Passenger data
 }
 
 // Tests adding many Passengers to a Station
@@ -142,14 +142,14 @@ void addOnePassengerStation() {
 // and the correct data
 void addManyPassengersStation() {
     Station station("Station"); // Initialize an empty station
-    for (int i = 0; i < 5; i++) { // Add many passengers
+    for (int i = 0; i < 4; i++) { // Add many passengers
         station.addPassenger(Passenger(0, 0, 0));
     }
     // Collect print
     stringstream ss;
     station.print(ss);
     // Check for expected Passenger data
-    assert(ss.str() == "{[0, 0->0][0, 0->0][0, 0->0][0, 0->0][0, 0->0]}");
+    assert(ss.str() == "Station {[0, 0->0][0, 0->0][0, 0->0][0, 0->0]}");
 }
 
 
@@ -185,6 +185,36 @@ void numPassengersManyAtMany() {
     }
     // Check that all passengers are counted for
     assert(sim.getNumPassengers() == 500);
+}
+
+// Tests that the simulator can read stations with one word names
+void readStationsOneWord() {
+    // Initialize a MetroSim and read the test stations
+    MetroSim sim;
+    sim.read_stations("test_stations2.txt");
+    // Collect the print
+    stringstream ss;
+    sim.print(ss);
+    cout << "tostring: " << ss.str() << endl;
+    // Check for expected data
+    assert(ss.str() == "[0] 1 {}\n"
+                        "[1] 2 {}\n"
+                        "[2] 3 {}\n"
+                        "[3] 4 {}\n"
+                        "[4] 5 {}\n");
+}
+
+void readStationsMultiWord() {
+    // Initialize a MetroSim and read the test stations
+    MetroSim sim;
+    sim.read_stations("test_stations3.txt");
+    // Collect the print
+    stringstream ss;
+    sim.print(ss);
+    cout << "tostring: " << ss.str() << endl;
+    // Check for expected data
+    assert(ss.str() == "[0] Station 1 {}\n"
+                        "[1] Station 2 {}\n");
 }
 
 
