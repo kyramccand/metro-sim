@@ -15,7 +15,18 @@ Train::Train() {
     curr_station = 0;
 }
 
+Train::Train(int station_count) {
+    num_stations = station_count;
+    curr_station = 0;
+}
+
 void Train::move() {
+    if (curr_station < num_stations - 1) {
+        curr_station++;
+    }
+    else {
+        curr_station = 0;
+    }
     return;
 }
 

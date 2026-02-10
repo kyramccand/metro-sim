@@ -23,12 +23,14 @@ using namespace std;
 class Train {
     public:
         Train();
+        Train(int station_count);
         void move();
         void print(ostream &output);
         int getStation();
     private:
-        vector<Station *> stations;
+        vector<PassengerQueue> passengers;
         int curr_station;
+        int num_stations;
         void boardPassengers(int station_num);
         void depositPassengers(int station_num);
 };

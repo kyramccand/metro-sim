@@ -53,13 +53,16 @@ void MetroSim::read_stations(string filename) {
         exit(EXIT_FAILURE);
     }
 
-    // Read line by line
+    // Read line by line, counting the stations
+    int station_count = 0;
     string line;
     while (getline(infile, line)) {
         // Add station
         Station new_station(line);
         stations.push_back(new_station);
+        station_count++;
     }
+    train = Train(station_count);
     infile.close();
 }
 
@@ -75,14 +78,14 @@ void MetroSim::print(ostream &output) {
     // Print info about each station
     int num_stations = stations.size();
     for (int i = 0; i < num_stations; i++) {
-        if (i == train.getStation()) {
+        if (i == train.getStation()) { // Train location
             output << "TRAIN: ";
         }
         else {
             output << "       ";
         }
-        output << "[" << i << "] ";
-        stations[i].print(output);
+        output << "[" << i << "] "; // Station index
+        stations[i].print(output); // Station
         output << endl;
     }
 }

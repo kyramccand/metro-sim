@@ -219,9 +219,11 @@ void readStationsMultiWord() {
 }
 
 
-// Tests that the train starts at station 0
-void startsAtZero() {
-    MetroSim sim;
-    assert(sim.train.getStation() == 0);
-}
+// To test getStation, I temporarily set MetroSim's train member to public
+
+// // Tests that the train starts at station 0
+// void startsAtZero() {
+//     MetroSim sim;
+//     assert(sim.train.getStation() == 0);
+// }
 
