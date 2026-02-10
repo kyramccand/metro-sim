@@ -196,7 +196,6 @@ void readStationsOneWord() {
     stringstream ss;
     sim.print(ss);
     // Check for expected data
-    cout << ss.str() << endl;
     assert(ss.str() == "TRAIN: [0] 1 {}\n"
                         "       [1] 2 {}\n"
                         "       [2] 3 {}\n"
@@ -213,7 +212,6 @@ void readStationsMultiWord() {
     stringstream ss;
     sim.print(ss);
     // Check for expected data
-    cout << ss.str() << endl;
     assert(ss.str() == "TRAIN: [0] Station 1 {}\n"
                         "       [1] Station 2 {}\n");
 }
@@ -226,4 +224,42 @@ void readStationsMultiWord() {
 //     MetroSim sim;
 //     assert(sim.train.getStation() == 0);
 // }
+
+// Tests that the train accurately moves forwards once
+// Starts the train at the beginning, attempts to move it forwards
+// Afterwards, the train should be one spot forwards
+void moveOnce() {
+    // Initialize a MetroSim from test station data
+    MetroSim sim;
+    sim.read_stations("test_stations4.txt");
+    sim.moveTrain(); // Move the train forwards once
+    // Collect the print
+    stringstream ss;
+    sim.print(ss);
+    // Check for expected data
+    assert(ss.str() == "       [0] s1 {}\n"
+                        "TRAIN: [1] s2 {}\n"
+                        "       [2] s3 {}\n");
+}
+
+// Tests that the train loops around properly
+// Starts train at the beginning and moves it forwards a bunch of times
+// Afterwards, the train should have looped around and be in the expected
+// position
+void loopAround() {
+    // Initialize a MetroSim and read the test stations
+    MetroSim sim;
+    sim.read_stations("test_stations4.txt");
+    // Move the train forwards many times
+    for (int i = 0; i < 100; i++) {
+        sim.moveTrain();
+    }
+    // Collect the print
+    stringstream ss;
+    sim.print(ss);
+    // Check for expected data
+    assert(ss.str() == "       [0] s1 {}\n"
+                        "TRAIN: [1] s2 {}\n"
+                        "       [2] s3 {}\n");
+}
 

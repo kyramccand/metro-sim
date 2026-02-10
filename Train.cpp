@@ -24,7 +24,7 @@ void Train::move() {
     if (curr_station < num_stations - 1) {
         curr_station++;
     }
-    else {
+    else { // Catch the edge case of train having to loop around
         curr_station = 0;
     }
     return;

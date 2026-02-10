@@ -61,6 +61,10 @@ Testing:
 * trying to use MetroSim print in assert statements for unit testing, had couts
   mixed in with outputs. Looked in dense red valgrind errors to find problem.
 
+How I tested:
+* wrote test files test_stations1.txt, test_stations2.txt, test_stations3.txt,
+  test_stations2.txt.
+
 Here describe the following: process of testing (unit tests), mention
 of bugs you encountered while testing, mention of testing on inputs of
 different sizes and edge cases, good description of base cases you
