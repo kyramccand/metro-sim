@@ -27,12 +27,12 @@ class Train {
         void move();
         void print(ostream &output);
         int getStation();
+        void boardPassengers(Station *station);
+        void depositPassengers(int station_num);
     private:
         vector<PassengerQueue> passengers;
         int curr_station;
         int num_stations;
-        void boardPassengers(Station *station);
-        void depositPassengers(int station_num);
 };
 
 #endif

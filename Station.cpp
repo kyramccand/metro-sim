@@ -62,6 +62,22 @@ void Station::addPassenger(Passenger passenger) {
 }
 
 /*
+* name:      popFrontPassenger
+* purpose:   remove the first passenger from the line of arrivals
+* arguments: none
+* returns:   the Passenger representing the passenger who was at the front
+* effects:   none
+* other:     none
+*/
+Passenger Station::popFrontPassenger() {
+    Passenger frontPassenger = passengers.front();
+    passengers.dequeue();
+    return frontPassenger;
+}
+
+
+
+/*
 * name:      print
 * purpose:   communicate information about the Station
 * arguments: a reference to the output stream to communicate information to

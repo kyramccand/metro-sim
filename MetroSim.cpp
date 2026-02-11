@@ -101,6 +101,7 @@ void MetroSim::print(ostream &output) {
  * other:     none
  */ 
 void MetroSim::moveTrain() {
+    train.boardPassengers(&stations.at(train.getStation()));
     train.move();
 }
 

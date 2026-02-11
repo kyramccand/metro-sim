@@ -33,8 +33,14 @@ Train::Train() {
  * other:     none
  */
 Train::Train(int station_count) {
+    // Update values appropriately
     num_stations = station_count;
     curr_station = 0;
+
+    // Set each passenger car to empty
+    for (int i = 0; i < station_count; i++) {
+        passengers.push_back(PassengerQueue());
+    }
 }
 
 /*
@@ -97,6 +103,21 @@ void Train::print(ostream &output) {
  * other:     
  */
 void Train::boardPassengers(Station *station) {
+    cout << "Boarding passengers" << endl;
+    while (station->getPassengers().size() != 0) {
+        // Remove passenger from station
+        // cout << "Got here!" << endl;
+        Passenger passenger_to_board = station->popFrontPassenger();
+        cout << "Got here!" << endl;
+        // Add passenger to train
+        cout << "Current passengers " << endl;
+        passengers[curr_station].print(cout);
+        cout << endl;
+        int end = passenger_to_board.getEndingStation();
+        cout << "end " << end << endl;
+        passengers[end].enqueue(passenger_to_board);
+    }
+    
     return;
 }
 

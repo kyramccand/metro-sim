@@ -26,6 +26,7 @@ class Station {
         string getName();
         PassengerQueue getPassengers();
         void addPassenger(Passenger passenger);
+        Passenger popFrontPassenger();
         void print(ostream &output);
     private:
         PassengerQueue passengers;
