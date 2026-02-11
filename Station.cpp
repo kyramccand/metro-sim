@@ -70,8 +70,8 @@ void Station::addPassenger(Passenger passenger) {
 * other:     none
 */
 Passenger Station::popFrontPassenger() {
-    Passenger frontPassenger = passengers.front();
-    passengers.dequeue();
+    Passenger frontPassenger = passengers.front(); // Save the first passenger
+    passengers.dequeue(); // Remove the first passenger
     return frontPassenger;
 }
 

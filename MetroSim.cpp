@@ -103,6 +103,7 @@ void MetroSim::print(ostream &output) {
 void MetroSim::moveTrain() {
     train.boardPassengers(&stations.at(train.getStation()));
     train.move();
+    train.depositPassengers(stations[train.getStation()].getName(), cout);
 }
 
 /*

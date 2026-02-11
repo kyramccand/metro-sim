@@ -96,39 +96,37 @@ void Train::print(ostream &output) {
 
 /*
  * name:      boardPassengers
- * purpose:   
- * arguments: 
- * returns:   
- * effects:   
- * other:     
+ * purpose:   simulate the boarding of all passengers at the station
+ * arguments: the Station representing the station to board passengers from
+ * returns:   none
+ * effects:   leaves the station empty, adds passengers to train
+ * other:     none
  */
 void Train::boardPassengers(Station *station) {
-    cout << "Boarding passengers" << endl;
+    // Board all passengers at the station
     while (station->getPassengers().size() != 0) {
         // Remove passenger from station
-        // cout << "Got here!" << endl;
         Passenger passenger_to_board = station->popFrontPassenger();
-        cout << "Got here!" << endl;
         // Add passenger to train
-        cout << "Current passengers " << endl;
-        passengers[curr_station].print(cout);
-        cout << endl;
         int end = passenger_to_board.getEndingStation();
-        cout << "end " << end << endl;
         passengers[end].enqueue(passenger_to_board);
     }
-    
-    return;
 }
 
 /*
  * name:      depositPassengers
- * purpose:   
- * arguments: 
- * returns:   
- * effects:   
- * other:     
+ * purpose:   simulate the deposit of passengers at a station
+ * arguments: the integer representing the station number to deposit passengers
+ * returns:   none
+ * effects:   empties the train car for the station at index station_num
+ * other:     none
  */
-void Train::depositPassengers(int station_num) {
-    return;
+void Train::depositPassengers(string station_name, ostream &output) {
+    int num_passengers = passengers[curr_station].size();
+    for (int i = 0; i < num_passengers; i++) {
+        Passenger d_passenger = passengers[curr_station].front();
+        passengers[curr_station].dequeue();
+        output << "Passenger " << d_passenger.getId() <<
+        " left train at station " << station_name << endl;
+    }
 }

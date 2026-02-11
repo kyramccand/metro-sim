@@ -28,7 +28,7 @@ class Train {
         void print(ostream &output);
         int getStation();
         void boardPassengers(Station *station);
-        void depositPassengers(int station_num);
+        void depositPassengers(string station_name, ostream &output);
     private:
         vector<PassengerQueue> passengers;
         int curr_station;
